@@ -1,0 +1,89 @@
+<mvc:View xmlns:upload="sap.m.upload"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="CollagePradeep.workflowuimodule.controller.App">
+    
+    <App id="app">
+        <Page id="scroll">
+            <content>
+                <form:SimpleForm
+                    id="request-information-form"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    singleContainerFullSize="false">
+                    <form:content>
+                        <core:Title id="Candidate-information-heading" text="Candidate Details" />
+                        
+                        <!-- Candidate Uuid -->
+                        <Label id="lUuid-label" text="lUuid" labelFor="lUuid-field" />
+                        <Input id="lUuid-field" value="{context>/lUuid}" editable="false" />
+
+                        <!-- Candidate Name -->
+                        <Label id="candidate-name-label" text="Candidate Name" labelFor="candidate-name-field" />
+                        <Input id="candidate-name-field" value="{context>/CandidateName}" editable="false" />
+
+                        <!-- Department Name -->
+                        <Label id="department-name-label" text="Department Name" labelFor="department-name-field" />
+                        <Input id="department-name-field" value="{context>/DepartmentName}" editable="false" />
+
+                        <!-- Date of Birth -->
+                        <Label id="dob-label" text="Date of Birth" labelFor="dob-field" />
+                        <Input id="dob-field" value="{context>/DOB}" editable="false" />
+
+                        <!-- Age -->
+                        <Label id="age-label" text="Age" labelFor="age-field" />
+                        <Input id="age-field" value="{context>/Age}" editable="false" />
+
+                        <!-- Candidate Phone -->
+                        <Label id="candidate-phone-label" text="Candidate Phone" labelFor="candidate-phone-field" />
+                        <Input id="candidate-phone-field" value="{context>/CandidatePhone}" editable="false" />
+
+                        <!-- Candidate Email -->
+                        <Label id="candidate-email-label" text="Candidate Email" labelFor="candidate-email-field" />
+                        <Input id="candidate-email-field" value="{context>/CandidateEmail}" editable="false" />
+
+                        <!-- Address -->
+                        <Label id="address-label" text="Address" labelFor="address-field" />
+                        <Input id="address-field" value="{context>/Address}" editable="false" />
+
+                        <!-- Upload Set -->
+                        <Label id="upload-set-label" text="Uploaded Files" labelFor="UploadSet"  />
+                        <upload:UploadSet id="UploadSet" uploadEnabled="false" >
+                                <upload:UploadSetItem
+                                    id="_IDGenUploadSetItem1"
+                                    visibleEdit="false"
+                                    visibleRemove="false">
+                                    <upload:attributes>
+                                        <ObjectAttribute id="_IDGenObjectAttribute1" title="Uploaded By" text="{createdBy}" active="false"/>
+                                        <ObjectAttribute id="_IDGenObjectAttribute2" title="Uploaded on" text="{createdAt}" active="false"/>
+                                        <ObjectAttribute id="_IDGenObjectAttribute3" title="File Type" text="{mediaType}" active="false"/>
+                                        <ObjectAttribute id="_IDGenObjectAttribute4" title="File Size" text="{size}" active="false"/>
+                                    </upload:attributes>
+                                </upload:UploadSetItem>
+                        </upload:UploadSet>
+                  
+                    </form:content>
+                </form:SimpleForm>
+                <html:hr></html:hr>
+                <FlexBox
+                    id="comment-wrapper"
+                    direction="Column"
+                    class="sapUiSmallMargin"
+                    width="auto">
+                    <Label id="comment-label" text="Comment" visible="false" />
+                    <TextArea
+                        id="comment-field"
+                        showExceededText="true"
+                        maxLength="1000"
+                        width="100%"
+                        height="120px"
+                        value="{context>/comment}"  visible="false"/>
+                </FlexBox>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
